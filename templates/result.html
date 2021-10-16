@@ -59,40 +59,8 @@
               </div>
         </div>
 
-        <div class="div2">
-            <form action="{{ url_for('predict')}}" method="POST">
-                <select class= "form-inpot align-center" name="batting-team">
-                <option value ="None">-----Select Batting Team</option>
-                <option value ="Mumbai Indians">Mumbai Indians</option>
-                <option value ="Sunrisers Hyderabad">Sunrisers Hyderabad</option>
-                <option value ="Kolkata Knight Riders">Kolkata Knight Riders</option>
-                <option value ="Delhi Daredevils">Delhi Daredevils</option>
-                <option value ="Chennai Super Kings">Chennai Super Kings</option>
-                <option value ="Rajasthan Royals">Rajasthan Royals</option>
-                <option value ="Kings XI Punjab">Kings XI Punjab</option>
-                <option value ="Royal Challengers Bangalore">Royal Challengers Bangalore</option>
-                </select><br>
-
-                <select class= "form-inpot align-center" name="bowling-team">
-                <option value ="None">-----Select Batting Team</option>
-                <option value ="Mumbai Indians">Mumbai Indians</option>
-                <option value ="Sunrisers Hyderabad">Sunrisers Hyderabad</option>
-                <option value ="Kolkata Knight Riders">Kolkata Knight Riders</option>
-                <option value ="Delhi Daredevils">Delhi Daredevils</option>
-                <option value ="Chennai Super Kings">Chennai Super Kings</option>
-                <option value ="Rajasthan Royals">Rajasthan Royals</option>
-                <option value ="Kings XI Punjab">Kings XI Punjab</option>
-                <option value ="Royal Challengers Bangalore">Royal Challengers Bangalore</option>
-                </select><br>
-                
-                <input class="form-input" type="text" name="overs" placeholders="Overs (>= 5) e.g. 7.2">
-                <input class="form-input" type="text" name="runs" placeholders="Runs e.g. 55">
-                <input class="form-input" type="text" name="wickets" placeholders="Wickets e.g. 85">
-                <input class="form-input" type="text" name="runs_in_prev_5" placeholders="Runs scored in previous 5 overs">
-                <input class="form-input" type="text" name="wickets_in_prev_5" placeholders="wickets fallen in previous 5 overs">
-                
-                <input class="myButton" type="submit" value="Predict Score">
-            </form>
+      <div class="results">
+            <p class="result-p">The final predicted score (range): {{ lower_limit }} to {{ upper_limit }} </p>
         </div>
         
         <div class='ipl-banner-right'>
