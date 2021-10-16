@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+
+  <html lang="en">
+    
+  		<head>
+    	<meta charset="utf-8">
+        <title>First Inning Score Predictor</title>
+          <link rel= "shortcut icon" href="{{ url_for('static', filename='ipl-favicon.ico') }}">
+          <link rel ="stylesheet" type= "text/css" href="{{ url_for('static', filename='styles.css')}}">
+         <script src="https://kit.fontawesome.com/5f3f547070.js" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro" rel="stylesheet">
+  
+          </head>
+
+    <body>
+      	<div class = "container">
+          		<h2 class="container-heading">
+                  <span class ="heading_first" >First Inning Score Predictor for </span>
+                  <span class="heading_second">Indian Premier League (IPL)</span></h2>
+          	<div class = "desription">
+            	<p>
+                  A machine learning web app, built with Flask, deployed using Heroku 
+            </p>
+          </div>
+      </div>
+      
+      <div class="prediction-area">
+        
+        	<div class="ipl-banner-left">
+              
+              	<div class = "slider-frame">
+                  	<div class ="slide-images-up">
+                      	<div class="image-container">
+                          <img  class ="image-width" src="{{ url_for('static', filename='mi.jpg') }}" alt ="Mumbai Indians">
+                      </div>
+                      <div class="image-container">
+                          <img  class ="image-width" src="{{ url_for('static', filename='srh.png') }}" alt ="Sunrisers Hyderabad">
+                      </div>
+                      <div class="image-container">
+                          <img  class ="image-width" src="{{ url_for('static', filename='rcb.png') }}" alt ="Royal Challenger Banglore">
+                      </div>
+                      <div class="image-container">
+                          <img  class ="image-width" src="{{ url_for('static', filename='dc.png') }}" alt ="Delhi Capitals">
+                      </div>
+                      <div class="image-container">
+                          <img  class ="image-width" src="{{ url_for('static', filename='rr.png') }}" alt ="Rajasthan Royals">
+                      </div>
+                      <div class="image-container">
+                          <img  class ="image-width" src="{{ url_for('static', filename='kkr.jpg') }}" alt ="Kolkata Knight Riders">
+                      </div>
+                      <div class="image-container">
+                          <img  class ="image-width" src="{{ url_for('static', filename='kxip.png') }}" alt ="Kings XI Punjab">
+                      </div>
+                      <div class="image-container">
+                          <img  class ="image-width" src="{{ url_for('static', filename='csk.png') }}" alt ="Chennai Super Kings">
+                      </div>
+                      	
+                  </div>
+              </div>
+        </div>
+
+        <div class="div2">
+            <form action="{{ url_for('predict')}}" method="POST">
+                <select class= "form-input align-center" name="batting-team">
+                <option value ="None">-----Select Batting Team</option>
+                <option value ="Mumbai Indians">Mumbai Indians</option>
+                <option value ="Sunrisers Hyderabad">Sunrisers Hyderabad</option>
+                <option value ="Kolkata Knight Riders">Kolkata Knight Riders</option>
+                <option value ="Delhi Daredevils">Delhi Daredevils</option>
+                <option value ="Chennai Super Kings">Chennai Super Kings</option>
+                <option value ="Rajasthan Royals">Rajasthan Royals</option>
+                <option value ="Kings XI Punjab">Kings XI Punjab</option>
+                <option value ="Royal Challengers Bangalore">Royal Challengers Bangalore</option>
+                </select><br>
+
+                <select class= "form-input align-center" name="bowling-team">
+                <option value ="None">-----Select Bowling Team</option>
+                <option value ="Mumbai Indians">Mumbai Indians</option>
+                <option value ="Sunrisers Hyderabad">Sunrisers Hyderabad</option>
+                <option value ="Kolkata Knight Riders">Kolkata Knight Riders</option>
+                <option value ="Delhi Daredevils">Delhi Daredevils</option>
+                <option value ="Chennai Super Kings">Chennai Super Kings</option>
+                <option value ="Rajasthan Royals">Rajasthan Royals</option>
+                <option value ="Kings XI Punjab">Kings XI Punjab</option>
+                <option value ="Royal Challengers Bangalore">Royal Challengers Bangalore</option>
+                </select><br>
+                
+                <input class="form-input" type="text" name="overs" placeholder="Overs (>= 5) e.g. 7.2"><br>
+                <input class="form-input" type="text" name="runs" placeholder="Runs e.g. 55"><br>
+                <input class="form-input" type="text" name="wickets" placeholder="Wickets e.g. 2"><br>
+                <input class="form-input" type="text" name="runs_in_prev_5" placeholder="Runs scored in previous 5 overs"><br>
+                <input class="form-input" type="text" name="wickets_in_prev_5" placeholder="wickets fallen in previous 5 overs"><br>
+                
+                <input class="myButton" type="submit" value="Predict Score">
+            </form>
+        </div>
+        
+        <div class="ipl-banner-right">
+
+                <div class="slider-frame">
+                    <div class="slide-images-down">
+
+                        <!-- Image-1 -->
+                        <div class="image-container">
+                            <img class="image-width" src="{{ url_for('static', filename='mi.jpg') }}" alt="Mumbai Indians">
+                        </div>
+                        <!-- Image-2 -->
+                        <div class="image-container">
+                            <img class="image-width" src="{{ url_for('static', filename='srh.png') }}" alt="Sunrisers Hyderabad">
+                        </div>
+                        <!-- Image-3 -->
+                        <div class="image-container">
+                            <img class="image-width" src="{{ url_for('static', filename='rcb.png') }}" alt="Royal Challengers Bangalore">
+                        </div>
+                        <!-- Image-4 -->
+                        <div class="image-container">
+                            <img class="image-width" src="{{ url_for('static', filename='dc.png') }}" alt="Delhi Capitals">
+                        </div>
+                        <!-- Image-5 -->
+                        <div class="image-container">
+                            <img class="image-width" src="{{ url_for('static', filename='kkr.jpg') }}" alt="Kolkata Knight Riders">
+                        </div>
+                        <!-- Image-6 -->
+                        <div class="image-container">
+                            <img class="image-width" src="{{ url_for('static', filename='rr.png') }}" alt="Rajasthan Royals">
+                        </div>
+                        <!-- Image-7 -->
+                        <div class="image-container">
+                            <img class="image-width" src="{{ url_for('static', filename='kxip.png') }}" alt="Kings XI Punjab">
+                        </div>
+                        <!-- Image-8 -->
+                        <div class="image-container">
+                            <img class="image-width" src="{{ url_for('static', filename='csk.png') }}" alt="Chennai Super Kings">
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        
+      </div>
+           <div class="footer">
+           <div class="contact">
+               <a target="_blank" href="https://github.com/anujvyas/IPL-First-Innings-Score-Prediction-Deployment"><i class="fab fa-github fa-lg contact-icon"></i></a>
+               <a target="_blank" href="https://www.linkedin.com/in/anujkvyas"><i class="fab fa-linkedin fa-lg contact-icon"></i></a>
+           </div>
+       </div>
+    </body>
+    
+    </html>
